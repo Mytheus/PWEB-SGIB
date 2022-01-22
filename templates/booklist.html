@@ -1,0 +1,19 @@
+<html>
+    <body>
+        {% for livro in livros %}
+        <p>{{livro.titulo}}</p>
+        <p>{{livro.genero}}</p>
+        <p>{{livro.autor}}</p>
+        <p>{{livro.editora}}</p>
+        <p>{{livro.descricao}}</p>
+        <p>{{livro.disponivel}}</p>
+        <a href="{% url 'delete-livro' id=livro.id %}">Deletar livro</a>
+        {% endfor %}
+
+        <form method="post">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" value="Criar">
+        </form>
+    </body>
+</html>
