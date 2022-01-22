@@ -11,4 +11,13 @@ class LivroForm(forms.ModelForm):
 
     class Meta:
         model = Livro
-        fields = ['id', 'titulo', 'autor', 'editora', 'descricao', 'disponivel']
+        fields = ['id', 'titulo', 'autor', 'editora', 'descricao', 'disponivel'] 
+
+        forms.widgets = {
+          'titulo' : forms.TextInput(attrs={'class' : 'form-control'}),
+          'genero' : forms.Select(attrs={'class' : 'form-control'}),
+          'autor' : forms.TextInput(attrs={'class' : 'form-control'}),
+          'editora' : forms.TextInput(attrs={'class' : 'form-control'}),
+          'descricao' : forms.Textarea(attrs={'class' : 'form-control'}),
+          'disponivel' : forms.CheckboxInput(attrs={'class' : 'form-control'})
+        }

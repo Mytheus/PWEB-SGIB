@@ -19,7 +19,7 @@ def do_login(request):
             if user is not None:
                 login(request, user)
 
-                return redirect('livros')
+                return redirect('index')
 
             form.add_error(None, "Credenciais incorretas")
 

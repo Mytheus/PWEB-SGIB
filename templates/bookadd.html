@@ -1,0 +1,15 @@
+{% load static %}
+<html>
+  <head>
+    <link rel="stylesheet" href="{% static 'dist/css/adminlte.min.css' %}">
+  </head>
+    <body>
+      <div class="form-group">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Criar">
+        </form>
+      </div>
+    </body>
+</html>
