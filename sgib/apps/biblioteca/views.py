@@ -18,7 +18,7 @@ def adicionar_livro(request):
             context['form'] = form
 
     return render(request, 'books-add.html', context)
-
+    
 @login_required(login_url='../../login/')
 def listar_livros(request):
   context = {}
@@ -41,6 +41,26 @@ def listar_livros(request):
   return render(request, 'booklist.html', context)
 
 @login_required(login_url='../../login/')
+def editar_livro(request, id):
+    try:
+        livro = Livro.objects.get(id=id)
+    
+    except Livro.DoesNotExist:
+        raise Http404
+    
+    context = {}
+    form = LivroForm(request.POST or None, instance = livro)
+
+    if form.is_valid():
+        form.save(commit=True)
+    
+    context['form'] = form
+    
+    livro.save()
+
+    return render(request, 'bookedit.html', context)
+
+@login_required(login_url='../../login/')
 def deletar_livro(request, id):
     try:
         livro = Livro.objects.get(id=id)
@@ -51,29 +71,6 @@ def deletar_livro(request, id):
     livro.delete()
 
     return redirect('listar-livros')
-
-@login_required(login_url='../../login/')
-def editar_livro(request, id):
-    try:
-        livro = Livro.objects.get(id=id)
-    
-    except Livro.DoesNotExist:
-        raise Http404
-    
-    context = {}
-    context['form'] = LivroForm()
-    if request.method == "POST":
-        form = LivroForm(request.POST or None)
-
-        if form.is_valid():
-            form.save(commit=True)
-        else:
-            context['form'] = form
-    
-    livro.save()
-
-    return render(request, 'books-edit.html', context)
-    
 
 @login_required(login_url='../login/')
 def index(request):

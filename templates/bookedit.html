@@ -1,9 +1,15 @@
 <html>
     <body>
-        <form method="put">
+        <form method="POST">
             {% csrf_token %}
             {{ form.as_p }}
             <input type="submit" value="Editar">
         </form>
+
+        <a href="{% url 'listar-livros' %}" class="nav-link">
+          <p>
+            Lista de livros
+          </p>
+        </a>
     </body>
 </html>
