@@ -3,5 +3,6 @@ from sgib.apps.core import views
 
 urlpatterns = [
     path('', views.do_login, name='login'),
-    path('login/', views.do_login, name='login')
+    path('login/', views.do_login, name='login'),
+    path('logout/', views.do_logout, name='logout')
 ]

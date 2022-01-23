@@ -1,6 +1,6 @@
 from sgib.apps.core.forms import LoginForm
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
 
@@ -26,3 +26,8 @@ def do_login(request):
         context['form'] = form
 
     return render(request, 'login.html', context)
+
+
+def do_logout(request):
+    logout(request)
+    return redirect('login')

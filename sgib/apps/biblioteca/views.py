@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from sgib.apps.biblioteca.forms import LivroForm
 from sgib.apps.biblioteca.models import Livro
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 
 @login_required(login_url='../../login/')
@@ -14,6 +15,7 @@ def adicionar_livro(request):
 
         if form.is_valid():
             form.save(commit=True)
+            messages.success(request, 'O livro foi cadastrado com sucesso!')
         else:
             context['form'] = form
 
@@ -53,6 +55,7 @@ def editar_livro(request, id):
 
     if form.is_valid():
         form.save(commit=True)
+        return redirect('listar-livros')
     
     context['form'] = form
     

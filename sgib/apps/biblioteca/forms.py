@@ -6,7 +6,7 @@ class LivroForm(forms.ModelForm):
     #genero = forms.CharField(label='Genero*', widget=forms.Select(choices=Livro.GENEROS))
     autor = forms.CharField(label="Autor*")
     editora = forms.CharField(label="Editora*")
-    descricao = forms.CharField(label="Descrição")
+    #descricao = forms.CharField(label="Descrição")
     disponivel = forms.CheckboxInput()
 
     class Meta:
@@ -18,6 +18,6 @@ class LivroForm(forms.ModelForm):
           'genero' : forms.Select(attrs={'class' : 'form-control'}),
           'autor' : forms.TextInput(attrs={'class' : 'form-control'}),
           'editora' : forms.TextInput(attrs={'class' : 'form-control'}),
-          'descricao' : forms.Textarea(attrs={'class' : 'form-control'}),
+          'descricao' : forms.Textarea(attrs={'class' : 'form-control','id': 'inputDescription'}),
           'disponivel' : forms.CheckboxInput(attrs={'class' : 'form-control'})
         }

@@ -6,41 +6,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AdminSGIB | Livros</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <link rel="stylesheet" href="{% static 'plugins/fontawesome-free/css/all.min.css' %}">
+  <link rel="stylesheet" href="{% static 'plugins/fontawesome-free/css/all.css' %}">
   <link rel="stylesheet" href="{% static 'dist/css/adminlte.min.css' %}">
+</head>
 
 <body class="hold-transition sidebar-mini">
     <!-- Site wrapper -->
-    <div class="wrapper">
+    <div class="wrapper" >
       <!-- Navbar -->
-      <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+      <nav class="main-header navbar navbar-expand navbar-white navbar-light" >
         <!-- Left navbar links -->
         <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-          </li>
           <li class="nav-item d-none d-sm-inline-block">
-            <a href="{% url 'index' %}" class="nav-link">Home</a>
+            <a href="{% url 'index' %}" class="nav-link" style="color: #0B7A75;" >Home</a>
           </li>
           
         </ul>
     
         <!-- Right navbar links -->
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-              <i class="fas fa-expand-arrows-alt"></i>
-            </a>
-          </li>
+          <li><a class="nav-link" style="color: #0B7A75;" href="{% url 'logout' %}">Sair</a></li>
         </ul>
       </nav>
       <!-- /.navbar -->
     
       <!-- Main Sidebar Container -->
-      <aside class="main-sidebar sidebar-dark-primary elevation-4">
+      <aside style="background-color: #60463B;" class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
         <a href="{% url 'index' %}" class="brand-link">
-        <!--  <img src="{% static 'dist/img/AdminLTELogo.png' %}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">-->
+          <img src="{% static 'logo_branca.svg' %}" alt="" style="max-width:60px">
           <span class="brand-text font-weight-light">AdminSGIB</span>
         </a>
     
@@ -75,7 +69,7 @@
       </aside>
     
       <!-- Content Wrapper. Contains page content -->
-      <div class="content-wrapper">
+      <div class="content-wrapper" style="background-color:#D7C9AA">
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <div class="container-fluid">
@@ -85,7 +79,7 @@
               </div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                  <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+                  <li class="breadcrumb-item"><a href="{% url 'index' %}" style="color: #0B7A75; font-weight: bold;">Home</a></li>
                   <li class="breadcrumb-item active">Livros</li>
                 </ol>
               </div>
@@ -158,7 +152,7 @@
                     <br/>
                 </td>
                 <td class="project-actions text-right">
-                    <a class="btn btn-info btn-sm" href="{% url 'editar-livro' id=livro.id %}">
+                    <a style="margin: 10px;" class="btn btn-info btn-sm" href="{% url 'editar-livro' id=livro.id %}">
                         Edit
                     </a>
                     <a class="btn btn-danger btn-sm" href="{% url 'delete-livro' id=livro.id %}">
